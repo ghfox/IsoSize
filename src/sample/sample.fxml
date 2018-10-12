@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<Pane fx:id="MainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Pane fx:id="ImgPane">
+         <children>
+            <ImageView fx:id="ImageBox" fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane layoutX="150.0" layoutY="200.0" minHeight="400.0" minWidth="400.0">
+               <children>
+                  <Pane minHeight="400.0" minWidth="400.0" rotate="30.0">
+                     <children>
+                        <Pane minHeight="300.0" minWidth="300.0" rotate="45.0">
+                           <children>
+                              <Box fx:id="Box" cullFace="NONE" depth="50.0" depthTest="DISABLE" drawMode="LINE" height="50.0" width="50.0">
+                                 <rotationAxis>
+                                    <Point3D y="1.0" />
+                                 </rotationAxis></Box>
+                              <Circle fx:id="OriginSphere" fill="DODGERBLUE" radius="3.0" stroke="#ff0505" strokeType="INSIDE" translateY="25.0" />
+                           </children>
+                           <rotationAxis>
+                              <Point3D y="1.0" />
+                           </rotationAxis>
+                        </Pane>
+                     </children>
+                     <rotationAxis>
+                        <Point3D x="1.0" />
+                     </rotationAxis>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Slider fx:id="Slider_X" layoutX="435.0" layoutY="143.0" max="300.0" value="50.0" />
+      <Slider fx:id="Slider_Y" layoutX="434.0" layoutY="204.0" max="300.0" value="50.0" />
+      <Slider fx:id="Slider_Z" layoutX="430.0" layoutY="82.0" max="300.0" onMousePressed="#updateBox" value="50.0" />
+      <Region onDragDropped="#updateImage" onDragOver="#setTransfer" prefHeight="400.0" prefWidth="400.0" />
+      <Slider fx:id="Y_Off" layoutX="435.0" layoutY="276.0" min="-100.0" />
+      <Slider fx:id="X_Off" layoutX="434.0" layoutY="258.0" min="-100.0" />
+      <TextField fx:id="Field_Width" layoutX="529.0" layoutY="104.0" onAction="#manualValue" prefHeight="25.0" prefWidth="44.0" />
+      <TextField fx:id="Field_Depth" layoutX="530.0" layoutY="42.0" onAction="#manualValue" prefHeight="25.0" prefWidth="44.0" />
+      <TextField fx:id="Field_Height" layoutX="526.0" layoutY="166.0" onAction="#manualValue" prefHeight="25.0" prefWidth="44.0" />
+      <Label layoutX="494.0" layoutY="108.0" text="Y" />
+      <Label layoutX="496.0" layoutY="46.0" text="X" />
+      <Label layoutX="493.0" layoutY="170.0" text="Z" />
+      <Button layoutX="450.0" layoutY="324.0" mnemonicParsing="false" onAction="#copyImg" text="Copy" />
+      <Button layoutX="516.0" layoutY="324.0" mnemonicParsing="false" onAction="#saveImg" text="Save" />
+   </children>
+</Pane>
